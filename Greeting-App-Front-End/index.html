@@ -2,4 +2,68 @@
 <html>
 <head>
 <title>Greeting App</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+.header {
+  background-color:#afa4a4;
+  padding-left:240px;
+}
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.sidenav {
+  width: 140px;
+  height: 600px; 
+  background: #ccc;
+  padding: 30px;
+}
+a{
+    text-decoration: none;
+}
+.sidenav i, .header-icons i{
+    padding-right:5px;
+}
+.header-icons {
+    background-color:#afa4a4;
+    padding: 10px 0px 0px 250px;
+}
+.header-icons i,a{
+    color:black;
+}
+.header-icons a{
+    padding-right:10px;
+}
+button {
+    background-color: #4c87af;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 20px;
+    text-align: center;
+    font-size: 12px;
+}
+</style>
+</head>
+<body>
+    <div class="grid-container">
+        <div class="header">
+            <h4>Greetings App</h4>
+        </div>
+        <div class="header-icons">
+            <a href="#"><i class="fa fa-bell"></i><i class="fa fa-caret-down"></i></a>
+            <a href="#"><i class="fa fa-envelope"></i></a> 
+            <a href="#"><i class="fa fa-question-circle"></i>Support</a> 
+            <a href="#"><i class="fa fa-wrench"> Tools</i><i class="fa fa-caret-down"></i></a> 
+            <button>Sign in</button>
+            <button>Sign up</button>
+        </div>
+    </div>
+    <div class="sidenav">
+        <p><i class="fa fa-list-alt"></i><a href="#">List</a></p>
+        <p><i class="fa fa-plus-square-o"></i><a href="#">Add</a></p>
+        <p><i class="fa fa-edit"></i><a href="#">Edit</a></p>
+        <p><i class="fa fa-trash-o"></i><a href="#">Delete</a></p>
+    </div>
+</body>
 </html>
