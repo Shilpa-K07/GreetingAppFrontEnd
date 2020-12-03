@@ -2,49 +2,34 @@
 <html>
 <head>
 <title>Greeting App</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<style>
-.header {
-  background-color:#afa4a4;
-  padding-left:240px;
-}
-.grid-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-}
-.sidenav {
-  width: 140px;
-  height: 600px; 
-  background: #ccc;
-  padding: 30px;
-}
-a{
-    text-decoration: none;
-}
-.sidenav i, .header-icons i{
-    padding-right:5px;
-}
-.header-icons {
-    background-color:#afa4a4;
-    padding: 10px 0px 0px 250px;
-}
-.header-icons i,a{
-    color:black;
-}
-.header-icons a{
-    padding-right:10px;
-}
-button {
-    background-color: #4c87af;
-    color: white;
-    padding: 12px;
-    border: none;
-    border-radius: 20px;
-    text-align: center;
-    font-size: 12px;
-}
-</style>
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+<link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"
+      integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP"
+      crossorigin="anonymous"
+    />
+<link rel="stylesheet" type="text/css" href="css/index.css"/>
 </head>
+<script>
+    list = () => {
+        document.getElementById("list1").style.display = 'block'
+        document.getElementById("list2").style.display = 'block'
+        document.getElementById("list3").style.display = 'block'
+    }
+    remove = () => {
+        document.getElementById("list1").style.display = 'none'
+        document.getElementById("list2").style.display = 'none'
+        document.getElementById("list3").style.display = 'none'
+    }
+    add = () => {
+        document.getElementById("list1").style.display = 'block'
+    }
+    edit = () => {
+        document.getElementById("message").innerHTML = "Hi"
+    }
+
+</script>
 <body>
     <div class="grid-container">
         <div class="header">
@@ -59,11 +44,35 @@ button {
             <button>Sign up</button>
         </div>
     </div>
+    
     <div class="sidenav">
-        <p><i class="fa fa-list-alt"></i><a href="#">List</a></p>
-        <p><i class="fa fa-plus-square-o"></i><a href="#">Add</a></p>
-        <p><i class="fa fa-edit"></i><a href="#">Edit</a></p>
-        <p><i class="fa fa-trash-o"></i><a href="#">Delete</a></p>
+        <p><i class="fa fa-list-alt"></i><a href="#" onclick="list()">List</a></p>
+        <p><i class="fas fa-folder-plus"></i><a href="#" onclick="add()">Add</a></p>
+        <p><i class="fa fa-edit"></i><a href="#" onclick="edit()">Edit</a></p>
+        <p><i class="fas fa-trash"></i><a href="#" onclick="remove()">Delete</a></p>
     </div>
+    <div  style="display:none" id="list1">
+        <div class="content1 content" style="float: left">
+            <p>5fbd273c08b3</p>
+            <p id="message">Hello</p>
+            <p>shree</p>
+        </div>
+    </div>
+    <div style="display:none" id="list2">
+        <div class="content2 content" style="float: left">
+            <p>5fbgt53c08b3</p>
+            <p>Hello</p>
+            <p>sinchana</p>
+        </div>
+    </div>
+    <div style="display:none" id="list3">
+        <div class="content content3">
+            <p>5fbd87hg08b3</p>
+            <p>Hello</p>
+            <p>sushma</p>
+        </div>
+    </div>
+    
+    
 </body>
 </html>
