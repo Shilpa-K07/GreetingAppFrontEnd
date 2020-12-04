@@ -11,55 +11,37 @@
     />
 <link rel="stylesheet" type="text/css" href="css/index.css"/>
 </head>
-<script>
-    list = () => {
-        document.getElementById("list1").style.display = 'block'
-        document.getElementById("list2").style.display = 'block'
-        document.getElementById("list3").style.display = 'block'
-    }
-    remove = () => {
-        document.getElementById("list1").style.display = 'none'
-        document.getElementById("list2").style.display = 'none'
-        document.getElementById("list3").style.display = 'none'
-    }
-    add = () => {
-        document.getElementById("list1").style.display = 'block'
-    }
-    edit = () => {
-        document.getElementById("message").innerHTML = "Hi"
-    }
-
-</script>
+<script type="text/javascript" src="js/index.js"></script>
 <body>
     <div class="grid-container">
         <div class="header">
             <h4>Greetings App</h4>
         </div>
         <div class="header-icons">
-            <a href="#"><i class="fa fa-bell"></i><i class="fa fa-caret-down"></i></a>
-            <a href="#"><i class="fa fa-envelope"></i></a> 
-            <a href="#"><i class="fa fa-question-circle"></i>Support</a> 
-            <a href="#"><i class="fa fa-wrench"> Tools</i><i class="fa fa-caret-down"></i></a> 
-            <button>Sign in</button>
-            <button>Sign up</button>
+            <i class="fa fa-bell"></i><i class="fa fa-caret-down header-icon"></i>
+            <i class="fa fa-envelope header-icon"></i>
+            <i class="fa fa-question-circle"></i> Support
+            <i class="fa fa-wrench tools"> Tools</i><i class="fa fa-caret-down header-icon"></i>
+            <button class="Signin-Signup">Sign in</button>
+            <button class="Signin-Signup">Sign up</button>
         </div>
     </div>
     
     <div class="sidenav">
-        <p><i class="fa fa-list-alt"></i><a href="#" onclick="list()">List</a></p>
-        <p><i class="fas fa-folder-plus"></i><a href="#" onclick="add()">Add</a></p>
-        <p><i class="fa fa-edit"></i><a href="#" onclick="edit()">Edit</a></p>
-        <p><i class="fas fa-trash"></i><a href="#" onclick="remove()">Delete</a></p>
+        <p><i class="fa fa-list-alt"></i><button onclick="get()">List</button></p>
+        <p><i class="fas fa-folder-plus"></i><button onclick="add()">Add</button></p>
+        <p><i class="fa fa-edit"></i><button onclick="edit()">Edit</button></p>
+        <p><i class="fas fa-trash"></i><button onclick="remove()">Delete</button></p>
     </div>
-    <div  style="display:none" id="list1">
-        <div class="content1 content" style="float: left">
+   <!--  <div  style="display:none" id="list1">
+        <div class="content1 content">
             <p>5fbd273c08b3</p>
             <p id="message">Hello</p>
             <p>shree</p>
         </div>
     </div>
     <div style="display:none" id="list2">
-        <div class="content2 content" style="float: left">
+        <div class="content2 content">
             <p>5fbgt53c08b3</p>
             <p>Hello</p>
             <p>sinchana</p>
@@ -71,8 +53,7 @@
             <p>Hello</p>
             <p>sushma</p>
         </div>
-    </div>
-    
-    
+    </div> -->
+    <div id="get"></div>
 </body>
 </html>
