@@ -1,16 +1,25 @@
 .header {
     background-color:#afa4a4;
     padding-left:240px;
+    width:100%;
   }
 .grid-container {
       display: grid;
       grid-template-columns: 1fr 1fr;
+      width: 100%;
+      position: fixed;
+      top: 0;
+      left:0;
   }
 .sidenav {
     width: 10%;
-    height: 485px; 
+    height: 100%; 
+    position: fixed; 
     background: #ccc;
-    padding: 30px;
+    padding-top: 60px; 
+    padding-left: 20px;
+    left:0;
+    margin-top: -27px;
   }
 .sidenav i {
       padding-right:5px;
@@ -41,19 +50,28 @@ button{
   border: none;
   background-color: #ccc;
 }
-.content {
+#main {
+  margin-left: 212px;
+  margin-top: 88px;
+}
+/* .content {
     border: 1px solid #4c87af;
     padding: 40px;
     width: 120px;
     margin-top: -610px;
     word-wrap: break-word;
+  } */
+.content {
+    float: left;
+    border: 1px solid red;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    width: 190px;
+    padding-left: 10px;
   }
-.content1 {
-    margin-left: 280px;
-  }
-.content2 {
+/* .content2 {
     margin-left: 510px;
 }
 .content3 {
     margin-left: 740px;
-}
+} */
