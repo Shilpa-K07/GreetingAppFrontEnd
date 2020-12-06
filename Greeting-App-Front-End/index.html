@@ -12,29 +12,61 @@
 <link rel="stylesheet" type="text/css" href="css/index.css"/>
 </head>
 <script type="text/javascript" src="js/index.js"></script>
+<script>
+    addData = () => {
+        name = document.getElementById("name").value;
+        message = document.getElementById("message").value;
+        fetch('http://localhost:3000/greetings/', {
+            method: 'POST',
+            headers: {
+            'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({name: name, message: message}),
+        })
+        .then(response => response.json())
+        .then(data => {
+            //console.log('Success:', data);
+            suceessMessage();
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
+    }
+    suceessMessage = () => {
+        document.getElementById("success-message").innerHTML = "Greeting added!"
+    }
+</script>
 <body>
     <div class="grid-container">
         <div class="header">
             <h4>Greetings App</h4>
         </div>
         <div class="header-icons">
-          <!--   <i class="fa fa-bell"></i> --><img src="img/alert.png" width="15" height ="15"/><!-- <i class="fa fa-caret-down header-icon"></i> --><img src="img/dropdown.png" width="15" height ="15"/>
-           <!--  <i class="fa fa-envelope header-icon"></i> --><img src="img/email.png" width="15" height ="15"/>
-           <!--  <i class="fa fa-question-circle"></i> --><img src="img/support.png" width="15" height ="15"/> Support
-            <!-- <i class="fa fa-wrench tools"> Tools</i> --><img src="img/adjustable-spanner_318-538.jpg" width="15" height ="15"/><i class="fa fa-caret-down header-icon"></i>
+            <i><img src="img/alert.png" width="15" height ="15"/></i><i class="header-icon"><img src="img/dropdown.png" width="15" height ="15"/></i>
+            <i class="header-icon"><img src="img/email.png" width="20" height ="15"/></i>
+            <i><img src="img/support.png" width="15" height ="15"/></i> Support
+            <i class="tools"><img src="img/adjustable-spanner_318-538.jpg" width="15" height ="15"/></i> Tools <i class="header-icon"><img src="img/dropdown.png" width="15" height ="15"/></i>
             <button class="Signin-Signup">Sign in</button>
             <button class="Signin-Signup">Sign up</button>
         </div>
     </div>
     
     <div class="sidenav">
-        <p><!-- <i class="fa fa-list-alt"></i> --><img src="img/list.png" width = "15" height = "15"/><button onclick="get()">List</button></p>
-        <p><!-- <i class="fas fa-folder-plus"> --><img src="img/add.png" width="15" height ="15"/><button onclick="add()">Add</button></p>
-        <p><!-- <i class="fa fa-edit"></i> --><img src="img/edit.png" width="15" height ="15"/><button onclick="edit()">Edit</button></p>
-        <p><!-- <i class="fas fa-trash"> </i>--><img src="img/delete.png" width="15" height ="15"/><button onclick="remove()">Delete</button></p>
+        <p><img src="img/list.png" width = "15" height = "15"/><button onclick="get()">List</button></p>
+        <p><img src="img/add.png" width="15" height ="15"/><button onclick="add()">Add</button></p>
+        <p><img src="img/edit.png" width="15" height ="15"/><button onclick="edit()">Edit</button></p>
+        <p><img src="img/delete.png" width="15" height ="15"/><button onclick="remove()">Delete</button></p>
     </div>
    
     <div id ="main">
+    </div>
+    <div id ="add" class="add" style="display: none;">
+        <p id="success-message"></p>
+        <form >
+            Name: <input type="text" id="name" name="name"><br>
+            Message: <input type="text" id="message" name="msg"><br><br>
+            <input type=Button Value="Add" onClick="addData()">
+          </form> 
     </div>
 </body>
 </html>
