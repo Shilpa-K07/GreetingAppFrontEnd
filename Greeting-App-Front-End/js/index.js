@@ -1,22 +1,22 @@
-list = () => {
-    document.getElementById("list1").style.display = 'block'
-    document.getElementById("list2").style.display = 'block'
-    document.getElementById("list3").style.display = 'block'
-}
 remove = () => {
-    document.getElementById("list1").style.display = 'none'
-    document.getElementById("list2").style.display = 'none'
-    document.getElementById("list3").style.display = 'none'
+    document.getElementById("delete").style.display = 'block'
+    document.getElementById("update").style.display = 'none'
+    document.getElementById('add').style.display = 'none'
+    document.getElementById('main').style.display = 'none'
 }
 add = () => {
     document.getElementById('add').style.display = 'block'
     document.getElementById('main').style.display = 'none'
+    document.getElementById('update').style.display = 'none'
 }
 edit = () => {
-    document.getElementById("message").innerHTML = "Hi"
+    document.getElementById("update").style.display = 'block'
+    document.getElementById('add').style.display = 'none'
+    document.getElementById('main').style.display = 'none'
 }
-get = () => {debugger;
+get = () => {
     document.getElementById('add').style.display = 'none';
+    document.getElementById('update').style.display = 'none'
     fetch('http://localhost:3000/greetings/')
         .then(response => response.json())
         .then(data => createElements(data))
@@ -43,9 +43,9 @@ createElements = (data) => {
         mainDiv.style.display = 'block'
     }
 }
-   /*  addData = () => {debugger;
-        name = document.getElementById("name").value;
-        message = document.getElementById("message").value;
+addData = () => {
+        var name = document.getElementById("name").value;
+        var message = document.getElementById("message").value;
         fetch('http://localhost:3000/greetings/', {
             method: 'POST',
             headers: {
@@ -55,10 +55,42 @@ createElements = (data) => {
         })
         .then(response => response.json())
         .then(data => {
-            console.log('Success:', data);
+            document.getElementById("success-message").innerHTML = data.message
         })
         .catch((error) => {
             console.error('Error:', error);
         });
     }
-} */
+
+updateData = () => {debugger;
+    var id = document.getElementById("id").value;
+    var name = document.getElementById("newName").value;
+    var message = document.getElementById("newMessage").value;
+
+    fetch('http://localhost:3000/greetings/'+id, {
+        method: 'PUT',
+        headers:{
+            'content-Tye' : 'application/json',
+        },
+        body: JSON.stringify({name: name, message: message})
+    })
+    .then(response => response.json())
+    .then(data => {
+        document.getElementById("update-message").innerHTML = data.message
+    })
+    .catch((error) => {
+        console.error('Error:', error)
+    });
+}
+
+removeData = () =>{debugger;
+    var id = document.getElementById("idToDelete").value;
+
+    fetch('http://localhost:3000/greetings/'+id, {
+        method: 'DELETE'
+    })
+    .then(response => response.json())
+    .then(data => {
+        document.getElementById("delete-message").innerHTML = data.message
+    })
+}

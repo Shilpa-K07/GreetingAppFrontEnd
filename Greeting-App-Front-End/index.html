@@ -12,7 +12,7 @@
 <link rel="stylesheet" type="text/css" href="css/index.css"/>
 </head>
 <script type="text/javascript" src="js/index.js"></script>
-<script>
+<!-- <script>
     addData = () => {
         name = document.getElementById("name").value;
         message = document.getElementById("message").value;
@@ -35,7 +35,7 @@
     suceessMessage = () => {
         document.getElementById("success-message").innerHTML = "Greeting added!"
     }
-</script>
+</script> -->
 <body>
     <div class="grid-container">
         <div class="header">
@@ -60,13 +60,33 @@
    
     <div id ="main">
     </div>
+    
     <div id ="add" class="add" style="display: none;">
-        <p id="success-message"></p>
+        <p id="success-message" style="color:green;"></p>
         <form >
-            Name: <input type="text" id="name" name="name"><br>
-            Message: <input type="text" id="message" name="msg"><br><br>
+            Name: <input type="text" id="name"><br>
+            Message: <input type="text" id="message"><br><br>
             <input type=Button Value="Add" onClick="addData()">
           </form> 
     </div>
+
+    <div id="update" class="update" style="display: none;">
+        <p id="update-message" style="color:green;"></p>
+        <form>
+            <p>Enter Id: <input type ="text" id="id"></p>
+            <p>Name: <input type="text" id="newName"></p>
+            <p>Message: <input type="text" id="newMessage"></p>
+            <p><input type=Button Value="Update" onClick="updateData()"></p>
+        </form>
+    </div>
+
+    <div id="delete" class="update" style="display: none;">
+        <p id="delete-message" style="color:green;"></p>
+        <form>
+            <p>Enter Id: <input type ="text" id="idToDelete"></p>
+            <p><input type=Button Value="Delete" onClick="removeData()"></p>
+        </form>
+    </div>
+
 </body>
 </html>
