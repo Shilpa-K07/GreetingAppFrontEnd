@@ -1,32 +1,17 @@
 const URL = 'http://localhost:3000/greetings/'
-remove = () => {
-    document.getElementById("delete").style.display = 'block'
-    document.getElementById("update").style.display = 'none'
-    document.getElementById('add').style.display = 'none'
-    document.getElementById('main').style.display = 'none'
-}
+
 add = () => {
     document.getElementById('add').style.display = 'block'
     document.getElementById('main').style.display = 'none'
     document.getElementById('update').style.display = 'none'
-    document.getElementById("delete").style.display = 'none'
-}
-edit = () => {
-    document.getElementById("update").style.display = 'block'
-    document.getElementById('add').style.display = 'none'
-    document.getElementById('main').style.display = 'none'
-    document.getElementById("delete").style.display = 'none'
 }
 get = () => {
     document.getElementById('add').style.display = 'none';
     document.getElementById('update').style.display = 'none'
-    document.getElementById("delete").style.display = 'none'
     fetch(URL)
         .then(response => response.json())
         .then(data => createElements(data))
-        .catch(err => console.log(err))
 }
-
 createElements = (data) => {
     var index = 0;
     const mainDiv = document.querySelector('#main');
@@ -39,17 +24,24 @@ createElements = (data) => {
         const deleteButton = document.createElement('button');
 
         firstDiv.className = "content"
+        const dataObject = {
+            id: data.data[index]._id,
+            name:data.data[index].name,
+            message:data.data[index].message
+        }
         editButton.className = "edit-button"
         deleteButton.className = "delete-button"
-        firstPara.innerHTML = data.data[index]._id;
-        secondPara.innerHTML = data.data[index].name;
-        thirdPara.innerHTML = data.data[index].message;
+        firstPara.innerHTML = data.data[index].name;
+        secondPara.innerHTML = data.data[index].message;
+        thirdPara.innerHTML = data.data[index].createdAt;
         editButton.innerHTML = "Edit";
         deleteButton.innerHTML = "Delete";
         index++;
 
         firstDiv.append(firstPara,secondPara,thirdPara,editButton,deleteButton);
         mainDiv.append(firstDiv);
+        editButton.addEventListener("click", () => { editData(dataObject)});
+        deleteButton.addEventListener("click", () => { removeData(dataObject)})
         mainDiv.style.display = 'block'
     }
 }
@@ -67,12 +59,13 @@ addData = () => {
         })
         .then(response => response.json())
         .then(data => {
-            console.log("Data: "+data)
-            document.getElementById("success-message").innerHTML = data.message
+            if(!data.success){
+                document.getElementById("name_error").innerHTML = "Invalid input"
+            }
+            else{
+                alert(data.message)
+            }
         })
-        .catch((error) => {
-            console.error('Error:', error);
-        });
     }
 
 updateData = () => {
@@ -90,21 +83,33 @@ updateData = () => {
     })
     .then(response => response.json())
     .then(data => {
-        document.getElementById("update-message").innerHTML = data.message
+        console.log("data: "+data)
+        if(!data.success){
+            document.getElementById("newName_error").innerHTML = "Invalid input"
+        }
+        else{
+            alert(data.message)
+        }
     })
-    .catch((error) => {
-        console.error('Error:', error)
-    });
 }
 
-removeData = () =>{
-    var id = document.getElementById("idToDelete").value;
+removeData = (dataObject) => {
+    var id = dataObject.id;
 
     fetch(URL+id, {
         method: 'DELETE'
     })
     .then(response => response.json())
     .then(data => {
-        document.getElementById("delete-message").innerHTML = data.message
+        alert(data.message)
     })
+}
+
+editData = (dataObject) => {
+    document.getElementById('main').style.display = 'none'
+    document.getElementById("update").style.display = 'block'
+    document.getElementById("newName").value = dataObject.name;
+    document.getElementById("newMessage").value = dataObject.message;
+    document.getElementById("id").value = dataObject.id;
+    document.getElementById("paraId").style.display = 'none'
 }

@@ -23,39 +23,31 @@
     <div class="sidenav">
         <p><img src="img/list.png"/><button onclick="get()">List</button></p>
         <p><img src="img/add.png" /><button onclick="add()">Add</button></p>
-        <p><img src="img/edit.png"/><button onclick="edit()">Edit</button></p>
-        <p><img src="img/delete.png"/><button onclick="remove()">Delete</button></p>
+        <p><img src="img/edit.png"/><button onclick="">Edit</button></p>
+        <p><img src="img/delete.png"/><button onclick="">Delete</button></p>
     </div>
    
-    <div id ="main" onClick="editOrDelete()">
-       
+    <div id ="main">
     </div>
     
     <div id ="add" class="add" style="display: none;">
-        <p id="success-message"></p>
-        <form >
-            Name: <input type="text" id="name"><br>
+        <form name="addForm">
+            Name: <input type="text" id="name" name="fullName"><br>
+            <p id="name_error" class="error-message"></p>
             Message: <input type="text" id="message"><br><br>
             <input type=Button Value="Add" onClick="addData()">
-          </form> 
+        </form> 
     </div>
 
     <div id="update" class="update" style="display: none;">
-        <p id="update-message"></p>
         <form>
-            <p>Enter ID: <input type ="text" id="id"></p>
+            <p id="paraId">Enter ID: <input type ="text" id="id"></p>
             <p>Name: <input type="text" id="newName"></p>
+            <p id="newName_error" class="error-message"></p>
             <p>Message: <input type="text" id="newMessage"></p>
             <p><input type=Button Value="Update" onClick="updateData()"></p>
         </form>
     </div>
-
-    <div id="delete" class="update" style="display: none;">
-        <p id="delete-message"></p>
-        <form>
-            <p>Enter ID: <input type ="text" id="idToDelete"></p>
-            <p><input type=Button Value="Delete" onClick="removeData()"></p>
-        </form>
-    </div>
 </body>
+
 </html>
