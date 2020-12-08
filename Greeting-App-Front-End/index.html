@@ -2,67 +2,37 @@
 <html>
 <head>
 <title>Greeting App</title>
-<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
-<link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"
-      integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP"
-      crossorigin="anonymous"
-    />
 <link rel="stylesheet" type="text/css" href="css/index.css"/>
 </head>
 <script type="text/javascript" src="js/index.js"></script>
-<!-- <script>
-    addData = () => {
-        name = document.getElementById("name").value;
-        message = document.getElementById("message").value;
-        fetch('http://localhost:3000/greetings/', {
-            method: 'POST',
-            headers: {
-            'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({name: name, message: message}),
-        })
-        .then(response => response.json())
-        .then(data => {
-            //console.log('Success:', data);
-            suceessMessage();
-        })
-        .catch((error) => {
-            console.error('Error:', error);
-        });
-    }
-    suceessMessage = () => {
-        document.getElementById("success-message").innerHTML = "Greeting added!"
-    }
-</script> -->
 <body>
     <div class="grid-container">
         <div class="header">
             <h4>Greetings App</h4>
         </div>
         <div class="header-icons">
-            <i><img src="img/alert.png" width="15" height ="15"/></i><i class="header-icon"><img src="img/dropdown.png" width="15" height ="15"/></i>
-            <i class="header-icon"><img src="img/email.png" width="20" height ="15"/></i>
-            <i><img src="img/support.png" width="15" height ="15"/></i> Support
-            <i class="tools"><img src="img/adjustable-spanner_318-538.jpg" width="15" height ="15"/></i> Tools <i class="header-icon"><img src="img/dropdown.png" width="15" height ="15"/></i>
+            <i><img src="img/alert.png"/></i>
+            <i class="header-icon"><img src="img/email.png"/></i>
+            <i><img src="img/support.png"/></i>Support
+            <i class="tools"><img src="img/adjustable-spanner_318-538.jpg"/></i>Tools 
             <button class="Signin-Signup">Sign in</button>
             <button class="Signin-Signup">Sign up</button>
         </div>
     </div>
     
     <div class="sidenav">
-        <p><img src="img/list.png" width = "15" height = "15"/><button onclick="get()">List</button></p>
-        <p><img src="img/add.png" width="15" height ="15"/><button onclick="add()">Add</button></p>
-        <p><img src="img/edit.png" width="15" height ="15"/><button onclick="edit()">Edit</button></p>
-        <p><img src="img/delete.png" width="15" height ="15"/><button onclick="remove()">Delete</button></p>
+        <p><img src="img/list.png"/><button onclick="get()">List</button></p>
+        <p><img src="img/add.png" /><button onclick="add()">Add</button></p>
+        <p><img src="img/edit.png"/><button onclick="edit()">Edit</button></p>
+        <p><img src="img/delete.png"/><button onclick="remove()">Delete</button></p>
     </div>
    
-    <div id ="main">
+    <div id ="main" onClick="editOrDelete()">
+       
     </div>
     
     <div id ="add" class="add" style="display: none;">
-        <p id="success-message" style="color:green;"></p>
+        <p id="success-message"></p>
         <form >
             Name: <input type="text" id="name"><br>
             Message: <input type="text" id="message"><br><br>
@@ -71,9 +41,9 @@
     </div>
 
     <div id="update" class="update" style="display: none;">
-        <p id="update-message" style="color:green;"></p>
+        <p id="update-message"></p>
         <form>
-            <p>Enter Id: <input type ="text" id="id"></p>
+            <p>Enter ID: <input type ="text" id="id"></p>
             <p>Name: <input type="text" id="newName"></p>
             <p>Message: <input type="text" id="newMessage"></p>
             <p><input type=Button Value="Update" onClick="updateData()"></p>
@@ -81,12 +51,11 @@
     </div>
 
     <div id="delete" class="update" style="display: none;">
-        <p id="delete-message" style="color:green;"></p>
+        <p id="delete-message"></p>
         <form>
-            <p>Enter Id: <input type ="text" id="idToDelete"></p>
+            <p>Enter ID: <input type ="text" id="idToDelete"></p>
             <p><input type=Button Value="Delete" onClick="removeData()"></p>
         </form>
     </div>
-
 </body>
 </html>

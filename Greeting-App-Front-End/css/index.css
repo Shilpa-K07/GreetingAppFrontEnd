@@ -21,15 +21,13 @@
     left:0;
     top:0;
   }
-/* .sidenav i {
-      padding-right:5px;
-  } */
 .header-icons {
       background-color:#afa4a4;
       padding: 10px 0px 0px 250px;
   }
 .header-icons i {
       color:black;
+      padding-right: 5px
   }
 .tools{
   padding-left:8px;
@@ -46,50 +44,66 @@
       text-align: center;
       font-size: 12px;
   }
+.edit-button {
+  background-color: #3b8112;
+  color: white;
+  border: none;
+  border-radius: 2px;
+  text-align: center;
+  font-size: 15px;
+  margin-right:20px;
+  padding:10px;
+  width:80px;
+}
+.delete-button {
+  background-color: #be161e;
+  color: white;
+  border: none;
+  border-radius: 2px;
+  text-align: center;
+  font-size: 15px;
+  margin-right:20px;
+  padding:10px;
+  width:80px;
+}
 button{
   border: none;
   background-color: #ccc;
 }
 #main {
-  margin-left: 212px;
+  margin-left: 150px;
   margin-top: 88px;
 }
-/* .content {
-    border: 1px solid #4c87af;
-    padding: 40px;
-    width: 120px;
-    margin-top: -610px;
-    word-wrap: break-word;
-  } */
 .content {
     float: left;
-    border: 1px solid red;
+    border: 3px solid #736a6a26;
     margin-left: 20px;
     margin-bottom: 20px;
-    width: 190px;
+    width: 200px;
     padding-left: 10px;
   }
 .add {
    margin-left: 215px;
    margin-top: 80px;
    float: left;
-   border: 1px solid red;
+   border: 3px solid #736a6a26;
    margin-bottom: 20px;
    width: 190px;
    padding : 15px;
 }
 .update {
-  margin-left: 215px;
+   margin-left: 215px;
    margin-top: 80px;
    float: left;
-   border: 1px solid red;
+   border: 3px solid #736a6a26;
    margin-bottom: 20px;
    width: 190px;
    padding : 15px;
 }
-/* .content2 {
-    margin-left: 510px;
+.update-message,.success-message,.delete-message {
+  color:green;
 }
-.content3 {
-    margin-left: 740px;
-} */
+img {
+  width: 15px;
+  height: 15px;
+}
