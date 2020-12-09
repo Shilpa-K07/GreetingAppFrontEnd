@@ -2,15 +2,15 @@
     background-color:#afa4a4;
     padding-left:240px;
     width:100%;
-  }
+}
 .grid-container {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      width: 100%;
-      position: fixed;
-      top: 0;
-      left:0;
-  }
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left:0;
+}
 .sidenav {
     width: 10%;
     height: 100%; 
@@ -20,90 +20,125 @@
     padding-left: 20px;
     left:0;
     top:0;
-  }
+}
 .header-icons {
-      background-color:#afa4a4;
-      padding: 10px 0px 0px 250px;
-  }
+    background-color:#afa4a4;
+    padding: 10px 0px 0px 250px;
+}
 .header-icons i {
-      color:black;
-      padding-right: 5px
-  }
+    color:black;
+    padding-right: 5px
+}
 .tools{
-  padding-left:8px;
+    padding-left:8px;
 }
 .header-icon {
-  padding-right:10px;
+    padding-right:10px;
 }
 .Signin-Signup {
-      background-color: #4c87af;
-      color: white;
-      padding: 12px;
-      border: none;
-      border-radius: 20px;
-      text-align: center;
-      font-size: 12px;
-  }
+    background-color: #4c87af;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 20px;
+    text-align: center;
+    font-size: 12px;
+}
 .edit-button {
-  background-color: #3b8112;
-  color: white;
-  border: none;
-  border-radius: 2px;
-  text-align: center;
-  font-size: 15px;
-  margin-right:20px;
-  padding:10px;
-  width:80px;
+    background-color: #ed9932;
+    color: white;
+    border: none;
+    border-radius: 2px;
+    text-align: center;
+    font-size: 15px;
+    margin-right:20px;
+    padding:10px;
+    width:80px;
 }
 .delete-button {
-  background-color: #be161e;
-  color: white;
-  border: none;
-  border-radius: 2px;
-  text-align: center;
-  font-size: 15px;
-  margin-right:20px;
-  padding:10px;
-  width:80px;
+    background-color: #be161e;
+    color: white;
+    border: none;
+    border-radius: 2px;
+    text-align: center;
+    font-size: 15px;
+    margin-right:20px;
+    padding:10px;
+    width:80px;
 }
+
 button{
-  border: none;
-  background-color: #ccc;
+    border: none;
+    background-color: #ccc;
 }
 #main {
-  margin-left: 150px;
-  margin-top: 88px;
+    margin-left: 215px;
+    margin-top: 88px;
 }
 .content {
     float: left;
     border: 3px solid #736a6a26;
-    margin-left: 20px;
+    margin-left: 40px;
     margin-bottom: 20px;
     width: 200px;
     padding-left: 10px;
-  }
-.add {
-   margin-left: 215px;
-   margin-top: 80px;
-   float: left;
-   border: 3px solid #736a6a26;
-   margin-bottom: 20px;
-   width: 190px;
-   padding : 15px;
 }
-.update {
-   margin-left: 215px;
-   margin-top: 80px;
-   float: left;
-   border: 3px solid #736a6a26;
-   margin-bottom: 20px;
-   width: 190px;
-   padding : 15px;
+.add {
+    margin-left: 215px;
+    margin-top: 80px;
+    float: left;
+    border: 3px solid #736a6a26;
+    margin-bottom: 20px;
+    width: 190px;
+    padding : 15px;
 }
 .error-message {
-  color:red;
+    color:red;
 }
 img {
-  width: 15px;
-  height: 15px;
+    width: 15px;
+    height: 15px;
+}
+.form-popup {
+    position: fixed;
+    border: 3px solid #8c8585;
+    padding: 20px;
+    font-size: 20px;
+    margin-left: 380px;
+    background-color: #8c8585;
+    height: 65%;
+}
+.form-container {
+    padding: 10px;
+}
+.form-container input[type=text]{
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 10px;
+    border: none;
+    background: #f1f1f1;
+}
+.form-container .btn {
+    background-color:#ed9932;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom:10px;
+}
+.form-container .cancel {
+    background-color: red;
+}
+.add-form {
+    position: fixed;
+    border: 3px solid #bdacac;
+    padding: 20px;
+    font-size: 20px;
+    margin: 100px 0px 0px 580px;
+    background-color: #9b8923;
+    height: 65%;
+}
+.add-form .add-btn {
+    background-color: green;
 }

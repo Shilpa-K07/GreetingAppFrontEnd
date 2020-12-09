@@ -1,51 +1,58 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<title>Greeting App</title>
-<link rel="stylesheet" type="text/css" href="css/index.css"/>
+    <title>Greeting App</title>
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
 </head>
 <script type="text/javascript" src="js/index.js"></script>
+
 <body>
     <div class="grid-container">
         <div class="header">
             <h4>Greetings App</h4>
         </div>
         <div class="header-icons">
-            <i><img src="img/alert.png"/></i>
-            <i class="header-icon"><img src="img/email.png"/></i>
-            <i><img src="img/support.png"/></i>Support
-            <i class="tools"><img src="img/adjustable-spanner_318-538.jpg"/></i>Tools 
+            <i><img src="assests/alert.png" /></i>
+            <i class="header-icon"><img src="assests/email.png" /></i>
+            <i><img src="assests/support.png" /></i>Support
+            <i class="tools"><img src="assests/adjustable-spanner_318-538.jpg" /></i>Tools
             <button class="Signin-Signup">Sign in</button>
             <button class="Signin-Signup">Sign up</button>
         </div>
     </div>
-    
+
     <div class="sidenav">
-        <p><img src="img/list.png"/><button onclick="get()">List</button></p>
-        <p><img src="img/add.png" /><button onclick="add()">Add</button></p>
-        <p><img src="img/edit.png"/><button onclick="">Edit</button></p>
-        <p><img src="img/delete.png"/><button onclick="">Delete</button></p>
-    </div>
-   
-    <div id ="main">
-    </div>
-    
-    <div id ="add" class="add" style="display: none;">
-        <form name="addForm">
-            Name: <input type="text" id="name" name="fullName"><br>
-            <p id="name_error" class="error-message"></p>
-            Message: <input type="text" id="message"><br><br>
-            <input type=Button Value="Add" onClick="addData()">
-        </form> 
+        <p><img src="assests/list.png" /><button onclick="get()">List</button></p>
+        <p><img src="assests/add.png" /><button onclick="add()">Add</button></p>
+        <p><img src="assests/edit.png" /><button onclick="">Edit</button></p>
+        <p><img src="assests/delete.png" /><button onclick="">Delete</button></p>
     </div>
 
-    <div id="update" class="update" style="display: none;">
-        <form>
-            <p id="paraId">Enter ID: <input type ="text" id="id"></p>
-            <p>Name: <input type="text" id="newName"></p>
-            <p id="newName_error" class="error-message"></p>
-            <p>Message: <input type="text" id="newMessage"></p>
-            <p><input type=Button Value="Update" onClick="updateData()"></p>
+    <div id="main">
+    </div>
+
+    <div id="add" class="add-form" style="display: none;">
+        <form name="addForm" class="form-container">
+            <p>Name: <input type="text" id="name" name="fullName" onkeyup="validateName()"></p>
+            <p id="name_error" class="error-message">&nbsp</p>
+            <p>Message: <input type="text" id="message" onkeyup="validateMessage()"></p>
+            <p id="message_error" class="error-message">&nbsp</p>
+            <input type=button Value="Add" class="btn add-btn" onClick="addData()"><input type="button" Value="Close"
+                class="btn cancel" onclick="closeAddForm()">
+        </form>
+    </div>
+
+    <div id="update" class="form-popup" style="display: none;">
+        <form class="form-container">
+            <p id="paraId">Enter ID: <input type="text" id="id"></p>
+            <p>Name: <input type="text" id="newName" onkeyup="validateNewName()"></p>
+            <p id="newName_error" class="error-message">&nbsp</p>
+            <p>Message: <input type="text" id="newMessage" onkeyup="validateNewMessage()"></p>
+            <p id="newMessage_error" class="error-message">&nbsp</p>
+            <p><input type=button Value="Update" class="btn" onClick="updateData()"><input type="button" Value="Close"
+                    class="btn cancel" onclick="closeEditForm()"></p>
+
         </form>
     </div>
 </body>
