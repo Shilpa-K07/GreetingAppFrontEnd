@@ -1,3 +1,6 @@
+* {
+    font-family: Arial;
+}
 .header {
     background-color:#afa4a4;
     padding-left:240px;
@@ -44,7 +47,7 @@
     text-align: center;
     font-size: 12px;
 }
-.edit-button {
+/* .edit-button {
     background-color: #ed9932;
     color: white;
     border: none;
@@ -65,7 +68,7 @@
     margin-right:20px;
     padding:10px;
     width:80px;
-}
+} */
 
 button{
     border: none;
@@ -83,7 +86,7 @@ button{
     width: 200px;
     padding-left: 10px;
 }
-.add {
+/* .add {
     margin-left: 215px;
     margin-top: 80px;
     float: left;
@@ -91,9 +94,11 @@ button{
     margin-bottom: 20px;
     width: 190px;
     padding : 15px;
-}
+} */
 .error-message {
     color:red;
+    font-size: 15px;
+    margin-top: -23px;
 }
 img {
     width: 15px;
@@ -102,17 +107,15 @@ img {
 .form-popup {
     position: fixed;
     border: 3px solid #8c8585;
-    padding: 20px;
-    font-size: 20px;
+    padding: 0px 20px 0px 20px;
+    font-size: 18px;
     margin-left: 380px;
     background-color: #8c8585;
-    height: 65%;
-}
-.form-container {
-    padding: 10px;
+    height: 60%;
+    display: none;
 }
 .form-container input[type=text]{
-    width: 100%;
+    width: 90%;
     padding: 15px;
     margin-bottom: 10px;
     border: none;
@@ -125,20 +128,38 @@ img {
     border: none;
     cursor: pointer;
     width: 100%;
-    margin-bottom:10px;
+    margin-top: 25px;
 }
 .form-container .cancel {
     background-color: red;
+    margin-top: 15px;
 }
 .add-form {
     position: fixed;
     border: 3px solid #bdacac;
-    padding: 20px;
-    font-size: 20px;
+    padding: 0px 20px 0px 20px;
+    font-size: 18px;
     margin: 100px 0px 0px 580px;
     background-color: #9b8923;
-    height: 65%;
+    height: 50%;
+    display: none;
 }
 .add-form .add-btn {
     background-color: green;
 }
+.delete-icon {
+    margin-left: 80px;
+}
+.edit-delete-height {
+    margin-top: 30px;
+}
+/* .delete-popup {
+    position: fixed;
+    border: 3px solid #8c8585;
+    padding: 0px 20px 0px 20px;
+    font-size: 20px;
+    margin-left: 380px;
+    background-color: #8c8585;
+    height: 70%;
+    display: none;
+} */

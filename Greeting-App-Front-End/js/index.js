@@ -1,17 +1,23 @@
 const URL = 'http://localhost:3000/greetings/'
+window.onload = () => {
+    get();
+}
 
 add = () => {
     document.getElementById('add').style.display = 'block'
     document.getElementById('main').style.display = 'none'
     document.getElementById('update').style.display = 'none'
 }
+
 get = () => {
     document.getElementById('add').style.display = 'none';
     document.getElementById('update').style.display = 'none'
+    
     fetch(URL)
         .then(response => response.json())
         .then(data => createElements(data))
 }
+
 createElements = (data) => {
     var index = 0;
     const mainDiv = document.querySelector('#main');
@@ -20,8 +26,10 @@ createElements = (data) => {
         const firstPara = document.createElement('p');
         const secondPara = document.createElement('p');
         const thirdPara = document.createElement('p');
-        const editButton = document.createElement('button');
-        const deleteButton = document.createElement('button');
+        const fourthPara = document.createElement('p')
+        const editButton = document.createElement('img');
+       // const fifthPara = document.createElement('p')
+        const deleteButton = document.createElement('img');
 
         const dataObject = {
             id: data.data[index]._id,
@@ -32,22 +40,29 @@ createElements = (data) => {
         var date = new Date(data.data[index].createdAt);
 
         firstDiv.className = "content"
-        editButton.className = "edit-button"
-        deleteButton.className = "delete-button"
+        fourthPara.className = "edit-delete-height"
+        deleteButton.className = "delete-icon"
+        editButton.src = "assests/editIcon.png"
+        deleteButton.src = "assests/deleteIcon.png"
         firstPara.innerHTML = data.data[index].name;
         secondPara.innerHTML = data.data[index].message;
         thirdPara.innerHTML = date.toDateString();
-        editButton.innerHTML = "Edit";
-        deleteButton.innerHTML = "Delete";
         index++;
 
-        firstDiv.append(firstPara, secondPara, thirdPara, editButton, deleteButton);
+        fourthPara.append(editButton)
+        fourthPara.append(" edit")
+        fourthPara.append(deleteButton)
+        fourthPara.append(" delete")
+        /* fifthPara.append(deleteButton)
+        fifthPara.append(" delete") */
+        firstDiv.append(firstPara, secondPara, thirdPara, fourthPara);
         mainDiv.append(firstDiv);
         editButton.addEventListener("click", () => { editData(dataObject) });
         deleteButton.addEventListener("click", () => { removeData(dataObject) })
         mainDiv.style.display = 'block'
     }
 }
+
 addData = () => {
     const data = {
         name: document.getElementById("name").value,
@@ -73,15 +88,16 @@ addData = () => {
                 alert(data.message)
             }
         })
+
 }
 
 updateData = () => {
-    debugger;
     var id = document.getElementById("id").value;
     const data = {
         name: document.getElementById("newName").value,
         message: document.getElementById("newMessage").value
     }
+
     fetch(URL + id, {
         method: 'PUT',
         headers: {
@@ -99,52 +115,70 @@ updateData = () => {
             }
             else {
                 alert(data.message)
+
             }
         })
 }
 
-removeData = (dataObject) => {
-    var result = confirm("Do you want to delete greeting?")
-    if (result) {
-        var id = dataObject.id;
+deleteData = () => {
+    var id = document.getElementById("deleteId").value
 
-        fetch(URL + id, {
-            method: 'DELETE'
+    fetch(URL + id, {
+        method: 'DELETE'
+    })
+        .then(response => response.json())
+        .then(data => {
+            alert(data.message)
         })
-            .then(response => response.json())
-            .then(data => {
-                alert(data.message)
-            })
-    }
+    location.reload()
+}
+
+removeData = (dataObject) => {
+    document.getElementById("delete").style.display = 'block'
+    document.getElementById("deleteName").value = dataObject.name;
+    document.getElementById("deleteMessage").value = dataObject.message;
+    document.getElementById("deleteId").value = dataObject.id;
+    document.getElementById("deleteParaId").style.display = 'none'
+    document.getElementById("main").style.filter = 'blur(1px)'
 }
 
 editData = (dataObject) => {
+    validateNewName();
+    validateNewMessage();
     document.getElementById("update").style.display = 'block'
     document.getElementById("newName").value = dataObject.name;
     document.getElementById("newMessage").value = dataObject.message;
     document.getElementById("id").value = dataObject.id;
     document.getElementById("paraId").style.display = 'none'
+    document.getElementById("main").style.filter = 'blur(1px)'
+}
+
+cancelDelete = () => {
+    document.getElementById("delete").style.display = 'none'
+    document.getElementById("main").style.filter = 'none'
 }
 
 closeEditForm = () => {
-    document.getElementById("update").style.display = "none";
+    document.getElementById("update").style.display = "none"
+    document.getElementById("main").style.filter = 'none'
 }
 
 closeAddForm = () => {
-    document.getElementById("add").style.display = "none";
+    document.getElementById("add").style.display = "none"
 }
-/* AutoRefresh = (time) => {
-    setTimeout("location.reload(true);", time);
-} */
+
 validateName = () => {
     document.getElementById("name_error").innerHTML = "&nbsp"
 }
+
 validateMessage = () => {
     document.getElementById("message_error").innerHTML = "&nbsp"
 }
+
 validateNewName = () => {
     document.getElementById("newName_error").innerHTML = "&nbsp"
 }
+
 validateNewMessage = () => {
     document.getElementById("newMessage_error").innerHTML = "&nbsp"
 }

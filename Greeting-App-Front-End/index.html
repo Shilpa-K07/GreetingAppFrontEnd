@@ -23,7 +23,7 @@
     </div>
 
     <div class="sidenav">
-        <p><img src="assests/list.png" /><button onclick="get()">List</button></p>
+        <p><img src="assests/list.png" /><button onclick="get();validateName();validateMessage()">List</button></p>
         <p><img src="assests/add.png" /><button onclick="add()">Add</button></p>
         <p><img src="assests/edit.png" /><button onclick="">Edit</button></p>
         <p><img src="assests/delete.png" /><button onclick="">Delete</button></p>
@@ -32,18 +32,17 @@
     <div id="main">
     </div>
 
-    <div id="add" class="add-form" style="display: none;">
+    <div id="add" class="add-form">
         <form name="addForm" class="form-container">
             <p>Name: <input type="text" id="name" name="fullName" onkeyup="validateName()"></p>
             <p id="name_error" class="error-message">&nbsp</p>
             <p>Message: <input type="text" id="message" onkeyup="validateMessage()"></p>
             <p id="message_error" class="error-message">&nbsp</p>
-            <input type=button Value="Add" class="btn add-btn" onClick="addData()"><input type="button" Value="Close"
-                class="btn cancel" onclick="closeAddForm()">
+            <input type=button Value="Add" class="btn add-btn" onClick="addData()">
         </form>
     </div>
 
-    <div id="update" class="form-popup" style="display: none;">
+    <div id="update" class="form-popup">
         <form class="form-container">
             <p id="paraId">Enter ID: <input type="text" id="id"></p>
             <p>Name: <input type="text" id="newName" onkeyup="validateNewName()"></p>
@@ -55,6 +54,16 @@
 
         </form>
     </div>
-</body>
 
+    <div id="delete" class="form-popup">
+        <form class="form-container">
+            <p id="deleteParaId"><input type="text" id="deleteId"></p>
+            <p>Name: <input type="text" id="deleteName"></p>
+            <p>Message: <input type="text" id="deleteMessage"></p>
+            <p><input type=button Value="Delete" class="btn" onClick="deleteData()"><input type="button" Value="Close"
+                    class="btn cancel" onclick="cancelDelete()"></p>
+
+        </form>
+    </div>
+</body>
 </html>
