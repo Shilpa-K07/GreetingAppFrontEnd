@@ -28,15 +28,16 @@
     background-color:#afa4a4;
     padding: 10px 0px 0px 250px;
 }
-.header-icons i {
+.header-icons .header-icon{
     color:black;
-    padding-right: 5px
+    padding-right: 10px;
 }
 .tools{
     padding-left:8px;
+    padding-right: 2px;
 }
 .header-icon {
-    padding-right:10px;
+    padding-right:2px;
 }
 .Signin-Signup {
     background-color: #4c87af;
@@ -47,29 +48,6 @@
     text-align: center;
     font-size: 12px;
 }
-/* .edit-button {
-    background-color: #ed9932;
-    color: white;
-    border: none;
-    border-radius: 2px;
-    text-align: center;
-    font-size: 15px;
-    margin-right:20px;
-    padding:10px;
-    width:80px;
-}
-.delete-button {
-    background-color: #be161e;
-    color: white;
-    border: none;
-    border-radius: 2px;
-    text-align: center;
-    font-size: 15px;
-    margin-right:20px;
-    padding:10px;
-    width:80px;
-} */
-
 button{
     border: none;
     background-color: #ccc;
@@ -86,15 +64,6 @@ button{
     width: 200px;
     padding-left: 10px;
 }
-/* .add {
-    margin-left: 215px;
-    margin-top: 80px;
-    float: left;
-    border: 3px solid #736a6a26;
-    margin-bottom: 20px;
-    width: 190px;
-    padding : 15px;
-} */
 .error-message {
     color:red;
     font-size: 15px;
@@ -106,60 +75,80 @@ img {
 }
 .form-popup {
     position: fixed;
-    border: 3px solid #8c8585;
+    border: 2px solid #736a6a26;
     padding: 0px 20px 0px 20px;
-    font-size: 18px;
-    margin-left: 380px;
-    background-color: #8c8585;
+    font-size: 17px;
+    background-color: white;
     height: 60%;
     display: none;
+    top: 20%;
+    right: 40%;
+    left: 40%;
 }
-.form-container input[type=text]{
-    width: 90%;
+.form-container input[type=text] {
+    width: 87%;
     padding: 15px;
     margin-bottom: 10px;
     border: none;
     background: #f1f1f1;
 }
 .form-container .btn {
-    background-color:#ed9932;
+    background-color:#4c87af;
     color: white;
     padding: 16px 20px;
     border: none;
     cursor: pointer;
     width: 100%;
     margin-top: 25px;
+    font-size: 12px;
 }
 .form-container .cancel {
     background-color: red;
     margin-top: 15px;
 }
 .add-form {
-    position: fixed;
-    border: 3px solid #bdacac;
-    padding: 0px 20px 0px 20px;
-    font-size: 18px;
-    margin: 100px 0px 0px 580px;
-    background-color: #9b8923;
     height: 50%;
-    display: none;
-}
-.add-form .add-btn {
-    background-color: green;
 }
 .delete-icon {
     margin-left: 80px;
 }
 .edit-delete-height {
     margin-top: 30px;
+    display:flex;
+    justify-content: space-around;
 }
-/* .delete-popup {
+.delete-popup {
     position: fixed;
-    border: 3px solid #8c8585;
-    padding: 0px 20px 0px 20px;
-    font-size: 20px;
-    margin-left: 380px;
-    background-color: #8c8585;
-    height: 70%;
+    border: 2px solid #736a6a26;
+    background-color: white;
+    height: 30%;
+    width: 40%;
     display: none;
-} */
+    top: 20%;
+    right: 40%;
+    left: 30%;
+    padding-top: 30px;
+}
+.delete-confirm-msg {
+    font-size: 18px;
+    text-align: center;
+}
+.delete-popup .delete-btn {
+    display: flex;
+    justify-content: space-around;
+}
+.delete-popup .btn {
+    background-color:#4c87af;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 20%;
+    margin-top: 25px;
+    font-size: 12px;
+}
+.delete-popup .cancel {
+    background-color: red;
+    margin-top: 25px;
+    font-size: 12px;
+}

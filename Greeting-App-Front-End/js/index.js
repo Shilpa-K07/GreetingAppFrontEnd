@@ -12,7 +12,7 @@ add = () => {
 get = () => {
     document.getElementById('add').style.display = 'none';
     document.getElementById('update').style.display = 'none'
-    
+
     fetch(URL)
         .then(response => response.json())
         .then(data => createElements(data))
@@ -21,6 +21,7 @@ get = () => {
 createElements = (data) => {
     var index = 0;
     const mainDiv = document.querySelector('#main');
+
     for (const q of data.data) {
         const firstDiv = document.createElement('div');
         const firstPara = document.createElement('p');
@@ -28,7 +29,6 @@ createElements = (data) => {
         const thirdPara = document.createElement('p');
         const fourthPara = document.createElement('p')
         const editButton = document.createElement('img');
-       // const fifthPara = document.createElement('p')
         const deleteButton = document.createElement('img');
 
         const dataObject = {
@@ -42,19 +42,15 @@ createElements = (data) => {
         firstDiv.className = "content"
         fourthPara.className = "edit-delete-height"
         deleteButton.className = "delete-icon"
-        editButton.src = "assests/editIcon.png"
-        deleteButton.src = "assests/deleteIcon.png"
+        editButton.src = "assests/edit.png"
+        deleteButton.src = "assests/delete.png"
         firstPara.innerHTML = data.data[index].name;
         secondPara.innerHTML = data.data[index].message;
-        thirdPara.innerHTML = date.toDateString();
+        thirdPara.innerHTML = date.toLocaleString();
         index++;
 
         fourthPara.append(editButton)
-        fourthPara.append(" edit")
         fourthPara.append(deleteButton)
-        fourthPara.append(" delete")
-        /* fifthPara.append(deleteButton)
-        fifthPara.append(" delete") */
         firstDiv.append(firstPara, secondPara, thirdPara, fourthPara);
         mainDiv.append(firstDiv);
         editButton.addEventListener("click", () => { editData(dataObject) });
@@ -68,6 +64,7 @@ addData = () => {
         name: document.getElementById("name").value,
         message: document.getElementById("message").value
     }
+
     fetch(URL, {
         method: 'POST',
         headers: {
@@ -77,7 +74,6 @@ addData = () => {
     })
         .then(response => response.json())
         .then(data => {
-            debugger;
             if (!data.success && data.message.includes("name")) {
                 document.getElementById("name_error").innerHTML = "Invalid input"
             }
@@ -88,7 +84,7 @@ addData = () => {
                 alert(data.message)
             }
         })
-
+    setTimeout(() => { document.getElementById("addForm").reset(); }, 1000);
 }
 
 updateData = () => {
@@ -114,10 +110,11 @@ updateData = () => {
                 document.getElementById("newMessage_error").innerHTML = "Message can not be empty"
             }
             else {
-                alert(data.message)
-
+                document.getElementById("update").style.display = 'none'
+                setTimeout(() => { alert(data.message); }, 500);
             }
         })
+    setTimeout(() => { location.reload(); }, 1000);
 }
 
 deleteData = () => {
@@ -128,18 +125,17 @@ deleteData = () => {
     })
         .then(response => response.json())
         .then(data => {
-            alert(data.message)
+            document.getElementById("delete").style.display = 'none'
+            setTimeout(() => { alert(data.message); }, 500);
         })
-    location.reload()
+    setTimeout(() => { location.reload(); }, 1000)
 }
 
 removeData = (dataObject) => {
     document.getElementById("delete").style.display = 'block'
-    document.getElementById("deleteName").value = dataObject.name;
-    document.getElementById("deleteMessage").value = dataObject.message;
     document.getElementById("deleteId").value = dataObject.id;
-    document.getElementById("deleteParaId").style.display = 'none'
-    document.getElementById("main").style.filter = 'blur(1px)'
+    document.getElementById("deleteId").style.display = 'none'
+    blurBackground();
 }
 
 editData = (dataObject) => {
@@ -150,17 +146,17 @@ editData = (dataObject) => {
     document.getElementById("newMessage").value = dataObject.message;
     document.getElementById("id").value = dataObject.id;
     document.getElementById("paraId").style.display = 'none'
-    document.getElementById("main").style.filter = 'blur(1px)'
+    blurBackground();
 }
 
 cancelDelete = () => {
     document.getElementById("delete").style.display = 'none'
-    document.getElementById("main").style.filter = 'none'
+    closeBlur();
 }
 
 closeEditForm = () => {
     document.getElementById("update").style.display = "none"
-    document.getElementById("main").style.filter = 'none'
+    closeBlur();
 }
 
 closeAddForm = () => {
@@ -181,4 +177,16 @@ validateNewName = () => {
 
 validateNewMessage = () => {
     document.getElementById("newMessage_error").innerHTML = "&nbsp"
+}
+blurBackground = () => {
+    document.getElementById("main").style.filter = 'blur(3px)'
+    document.getElementById("g-container").style.filter = 'blur(3px)'
+    document.getElementById("s-nav").style.filter = 'blur(3px)'
+    document.getElementById("body").style.overflow = 'hidden'
+}
+closeBlur = () => {
+    document.getElementById("main").style.filter = 'none'
+    document.getElementById("g-container").style.filter = 'none'
+    document.getElementById("s-nav").style.filter = 'none'
+    document.getElementById("body").style.overflow = 'auto'
 }

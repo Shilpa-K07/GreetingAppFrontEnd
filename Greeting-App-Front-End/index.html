@@ -7,22 +7,22 @@
 </head>
 <script type="text/javascript" src="js/index.js"></script>
 
-<body>
-    <div class="grid-container">
+<body id="body">
+    <div class="grid-container" id="g-container">
         <div class="header">
             <h4>Greetings App</h4>
         </div>
         <div class="header-icons">
-            <i><img src="assests/alert.png" /></i>
+            <i class="header-icon"><img src="assests/notification.png" /></i>
             <i class="header-icon"><img src="assests/email.png" /></i>
-            <i><img src="assests/support.png" /></i>Support
-            <i class="tools"><img src="assests/adjustable-spanner_318-538.jpg" /></i>Tools
+            <i><img src="assests/question-mark-on-a-circular-black-background.png" /></i> Support
+            <i class="tools"><img src="assests/repair-tool.png" /></i>Tools
             <button class="Signin-Signup">Sign in</button>
             <button class="Signin-Signup">Sign up</button>
         </div>
     </div>
 
-    <div class="sidenav">
+    <div class="sidenav" id="s-nav">
         <p><img src="assests/list.png" /><button onclick="get();validateName();validateMessage()">List</button></p>
         <p><img src="assests/add.png" /><button onclick="add()">Add</button></p>
         <p><img src="assests/edit.png" /><button onclick="">Edit</button></p>
@@ -32,13 +32,13 @@
     <div id="main">
     </div>
 
-    <div id="add" class="add-form">
-        <form name="addForm" class="form-container">
+    <div id="add" class="form-popup add-form">
+        <form id="addForm" class="form-container">
             <p>Name: <input type="text" id="name" name="fullName" onkeyup="validateName()"></p>
             <p id="name_error" class="error-message">&nbsp</p>
             <p>Message: <input type="text" id="message" onkeyup="validateMessage()"></p>
             <p id="message_error" class="error-message">&nbsp</p>
-            <input type=button Value="Add" class="btn add-btn" onClick="addData()">
+            <input type=button Value="ADD" class="btn add-btn" onClick="addData()">
         </form>
     </div>
 
@@ -49,21 +49,19 @@
             <p id="newName_error" class="error-message">&nbsp</p>
             <p>Message: <input type="text" id="newMessage" onkeyup="validateNewMessage()"></p>
             <p id="newMessage_error" class="error-message">&nbsp</p>
-            <p><input type=button Value="Update" class="btn" onClick="updateData()"><input type="button" Value="Close"
+            <p><input type=button Value="UPDATE" class="btn" onClick="updateData()"><input type="button" Value="CLOSE"
                     class="btn cancel" onclick="closeEditForm()"></p>
-
         </form>
     </div>
 
-    <div id="delete" class="form-popup">
-        <form class="form-container">
-            <p id="deleteParaId"><input type="text" id="deleteId"></p>
-            <p>Name: <input type="text" id="deleteName"></p>
-            <p>Message: <input type="text" id="deleteMessage"></p>
-            <p><input type=button Value="Delete" class="btn" onClick="deleteData()"><input type="button" Value="Close"
-                    class="btn cancel" onclick="cancelDelete()"></p>
-
+    <div id="delete" class="delete-popup">
+        <form>
+            <input type="text" id="deleteId">
+            <p class="delete-confirm-msg">Do you want to delete greeting?</p>
+            <p class="delete-btn"><input type=button Value="DELETE" class="btn" onClick="deleteData()"><input
+                    type="button" Value="CLOSE" class="btn cancel" onclick="cancelDelete()"></p>
         </form>
     </div>
 </body>
+
 </html>
