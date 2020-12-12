@@ -11,7 +11,6 @@ add = () => {
 
 get = () => {
     document.getElementById('add').style.display = 'none';
-    document.getElementById('update').style.display = 'none'
 
     fetch(URL)
         .then(response => response.json())
@@ -24,10 +23,10 @@ createElements = (data) => {
 
     for (const q of data.data) {
         const firstDiv = document.createElement('div');
-        const firstPara = document.createElement('p');
-        const secondPara = document.createElement('p');
-        const thirdPara = document.createElement('p');
-        const fourthPara = document.createElement('p')
+        const nameData = document.createElement('p');
+        const messageData = document.createElement('p');
+        const dateData = document.createElement('p');
+        const image = document.createElement('p')
         const editButton = document.createElement('img');
         const deleteButton = document.createElement('img');
 
@@ -40,19 +39,19 @@ createElements = (data) => {
         var date = new Date(data.data[index].createdAt);
 
         firstDiv.className = "content"
-        fourthPara.className = "edit-delete-height"
+        image.className = "edit-delete-height"
         deleteButton.className = "delete-icon"
         editButton.src = "assests/edit.png"
         deleteButton.src = "assests/delete.png"
-        firstPara.innerHTML = data.data[index].name;
-        secondPara.innerHTML = data.data[index].message;
-        thirdPara.innerHTML = date.toLocaleString();
+        nameData.innerHTML = data.data[index].name;
+        messageData.innerHTML = data.data[index].message;
+        dateData.innerHTML = date.toLocaleString();
         index++;
 
-        fourthPara.append(editButton)
-        fourthPara.append(deleteButton)
-        firstDiv.append(firstPara, secondPara, thirdPara, fourthPara);
-        mainDiv.append(firstDiv);
+        image.append(editButton)
+        image.append(deleteButton)
+        firstDiv.append(nameData, messageData, dateData, image);
+        mainDiv.append(firstDiv)
         editButton.addEventListener("click", () => { editData(dataObject) });
         deleteButton.addEventListener("click", () => { removeData(dataObject) })
         mainDiv.style.display = 'block'
@@ -179,9 +178,9 @@ validateNewMessage = () => {
     document.getElementById("newMessage_error").innerHTML = "&nbsp"
 }
 blurBackground = () => {
-    document.getElementById("main").style.filter = 'blur(3px)'
-    document.getElementById("g-container").style.filter = 'blur(3px)'
-    document.getElementById("s-nav").style.filter = 'blur(3px)'
+    document.getElementById("main").style.filter = 'blur(1px)'
+    document.getElementById("g-container").style.filter = 'blur(1px)'
+    document.getElementById("s-nav").style.filter = 'blur(1px)'
     document.getElementById("body").style.overflow = 'hidden'
 }
 closeBlur = () => {

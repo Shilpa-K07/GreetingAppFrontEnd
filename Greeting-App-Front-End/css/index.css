@@ -110,27 +110,24 @@ img {
     height: 50%;
 }
 .delete-icon {
-    margin-left: 80px;
+    margin-left: 35px;
 }
 .edit-delete-height {
     margin-top: 30px;
-    display:flex;
-    justify-content: space-around;
 }
 .delete-popup {
     position: fixed;
     border: 2px solid #736a6a26;
     background-color: white;
-    height: 30%;
-    width: 40%;
+    width: 35%;
     display: none;
     top: 20%;
     right: 40%;
     left: 30%;
-    padding-top: 30px;
+    padding: 20px 0px 20px 0px;
 }
 .delete-confirm-msg {
-    font-size: 18px;
+    font-size: 17px;
     text-align: center;
 }
 .delete-popup .delete-btn {
@@ -140,15 +137,13 @@ img {
 .delete-popup .btn {
     background-color:#4c87af;
     color: white;
-    padding: 16px 20px;
+    padding: 10px;
     border: none;
     cursor: pointer;
-    width: 20%;
-    margin-top: 25px;
+    width: 15%;
     font-size: 12px;
 }
 .delete-popup .cancel {
     background-color: red;
-    margin-top: 25px;
     font-size: 12px;
 }
