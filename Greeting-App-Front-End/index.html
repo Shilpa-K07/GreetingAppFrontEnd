@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <title>Greeting App</title>
     <link rel="stylesheet" type="text/css" href="css/index.css" />
@@ -23,7 +22,8 @@
     </div>
 
     <div class="sidenav">
-        <p><img src="assests/list.png" /><button onclick="get();validateName();validateMessage();location.reload()">List</button></p>
+        <p><img src="assests/list.png" /><button
+                onclick="get();validateName();validateMessage();location.reload()">List</button></p>
         <p><img src="assests/add.png" /><button onclick="add()">Add</button></p>
         <p><img src="assests/edit.png" /><button onclick="">Edit</button></p>
         <p><img src="assests/delete.png" /><button onclick="">Delete</button></p>
@@ -31,13 +31,12 @@
 
     <div id="main">
     </div>
-
     <div id="add" class="form-popup add-form">
         <form id="addForm" class="form-container">
             <p>Name: <input type="text" id="name" name="fullName" onkeyup="validateName()"></p>
-            <p id="name_error" class="error-message">&nbsp</p>
+            <p id="name_error" class="error-message"></p>
             <p>Message: <input type="text" id="message" onkeyup="validateMessage()"></p>
-            <p id="message_error" class="error-message">&nbsp</p>
+            <p id="message_error" class="error-message"></p>
             <input type=button Value="ADD" class="btn add-btn" onClick="addData()">
         </form>
     </div>
@@ -46,9 +45,9 @@
         <form class="form-container">
             <p id="paraId">Enter ID: <input type="text" id="id"></p>
             <p>Name: <input type="text" id="newName" onkeyup="validateNewName()"></p>
-            <p id="newName_error" class="error-message">&nbsp</p>
+            <p id="newName_error" class="error-message"></p>
             <p>Message: <input type="text" id="newMessage" onkeyup="validateNewMessage()"></p>
-            <p id="newMessage_error" class="error-message">&nbsp</p>
+            <p id="newMessage_error" class="error-message"></p>
             <p><input type=button Value="UPDATE" class="btn" onClick="updateData()"><input type="button" Value="CLOSE"
                     class="btn cancel" onclick="closeEditForm()"></p>
         </form>
